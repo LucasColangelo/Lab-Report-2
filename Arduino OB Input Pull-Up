@@ -1,0 +1,13 @@
+//the goal of this program is to allow current and voltage to pass once the button is pressed using an INTERNAL pull-up resistor. The value also needs to be printed onto the serial monitor
+// the main theme of this program is digital Input
+
+void setup() { // A one-use block of code. It initializes the sketch and allows the structure of the code or the arduino itself to be written.
+  Serial.begin(9600); // Tells the program to start the serial communication at 9600 bits per second
+  pinMode(2, INPUT_PULLUP); // sets pin #2 as an input using the internal resistor
+}
+
+void loop() { // This is another one-use line. This determines what the code actually does, and in this case, it will continously loop the code.
+
+  Serial.println(digitalRead(2)); // tells the program to print the value read from pin number 2 on a line on the serial monitor
+  delay(100); //delays the time by 100 milliseconds at which the value is printed on the monitor
+}
