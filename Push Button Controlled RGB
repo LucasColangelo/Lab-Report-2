@@ -1,0 +1,20 @@
+// the goal of this program  is to have the RGB LED display the white light when the button isn't pressed, and have the RGB LED turn off when the pushbutton is pressed\
+//the main theme is digital input controlling digital output
+void setup() { // A one-use block of code. It initializes the sketch and allows the structure of the code or the Arduino itself to be written.
+ Serial.begin(9600); // Tells the program to start the serial communication at 9600 bits per second
+ pinMode(2, INPUT_PULLUP); //sets pin #2 as an input using the internal pull up resistor
+  pinMode(13, OUTPUT); // sets pin #13 as an output
+  pinMode(12, OUTPUT); // sets pin #12 as an output
+  pinMode(11, OUTPUT); // sets pin #11 as an output
+}
+void loop() { // This is another one-use line. This determines what the code actually does, and in this case, it will continuously loop the code.
+  int buttonState = digitalRead(2); //creates a variable for what reading of pin #2 named "buttonState"
+  
+  Serial.print("buttonState = "); //prints exactly what is in the quotations into the serial monitor
+  Serial.print("\t"); //creates a space on the line in the serial monitor
+  Serial.println(buttonState); //prints the value read from pin #2 on the same line as the previous commands onto the serial monitor
+  delay(100); //delays the printing of a new line by 100 milliseconds
+ digitalWrite(13, buttonState); //tells pin #13 to react to the value of the pushbutton
+ digitalWrite(12, buttonState); //tells pin #12 to react to the value of the pushbutton
+ digitalWrite(11, buttonState); //tells pin #11 to react to the value of the pushbutton
+}
