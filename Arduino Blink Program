@@ -8,8 +8,8 @@ void setup() {     // A one-use block of code. It initializes the sketch and all
 void loop() {     // This is another one-use line. This determines what the code actually does, and in this case, it will continously loop the code.
   digitalWrite(13, 1);     // this is the digital OUTPUT code, and it tells pin #13 to output at 1, or max power which in this case is 5V.
   digitalWrite(12, 1);     // same like the line above, it tells pin #12 to output at 1, or max power.
-  delay(1000);     // this delays the lines above in the loop by 1000 miliseconds                    
+  delay(1000);     // this delays the program by 1000 milliseconds before starting the next lines                 
   digitalWrite(13, 0);     // this tells pin #13 to output at 0, or no power/low power
   digitalWrite(12, 0);     // this tells pin #12 to output at 0, or no power/low power
-  delay(1000);     // this delays the lines above in the loop by 1000 miliseconds                     
+  delay(1000);     // this delays the program by 1000 milliseconds before starting the next lines                    
 }
