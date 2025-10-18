@@ -1,14 +1,11 @@
 // The goal of this program is to have the LEDs chase eachother. Basically having one turn on, then the next one, then the next one in a sequential way. 
 // The main theme of this program is Digital Output.
-
-
 void setup() { // A one-use block of code. It initializes the sketch and allows the structure of the code or the arduino itself to be written.
   
   pinMode(13, OUTPUT); // this sets pin #13 to be an OUTPUT pin.
   pinMode(12, OUTPUT);
   pinMode(11, OUTPUT); // like the line above, this sets pin #12 to be an OUTPUT pin.
 }
-
 
 void loop() { // This is another one-use line. This determines what the code actually does, and in this case, it will continously loop the code.
   digitalWrite(13, 1); // this is the digital OUTPUT code, and it tells pin #13 to output at 1, or max power which in this case is 5V.
@@ -35,5 +32,4 @@ void loop() { // This is another one-use line. This determines what the code act
   digitalWrite(12, 0); // this tells pin #12 to stay at low power
   digitalWrite(11, 0); // this tells pin #11 to stay at low power
   delay(1000); // this delays the lines above by 1000 miliseconds
-
 }
