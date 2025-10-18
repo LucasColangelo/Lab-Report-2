@@ -11,25 +11,25 @@ void loop() { // This is another one-use line. This determines what the code act
   digitalWrite(13, 1); // this is the digital OUTPUT code, and it tells pin #13 to output at 1, or max power which in this case is 5V.
   digitalWrite(12, 0); // this tells pin #12 to stay at Low power
   digitalWrite(11, 0); // this tells pin #11 to stay at low power 
-  delay(1000); // this delays the lines above in the loop by 1000 miliseconds                    
+  delay(1000); // this delays the program by 1000 milliseconds before starting the next lines                  
   digitalWrite(13, 0); //this tells pin #13 to return to low power
   digitalWrite(12, 1); // this tells pin #12 to output max power
   digitalWrite(11, 0); // this tells pin #11 to stay at low power
-  delay(1000); // this delays the lines above by 1000 miliseconds
+  delay(1000); // this delays the program by 1000 milliseconds before starting the next lines
   digitalWrite(13, 0); // this tells pin #13 to stay at low power
   digitalWrite(12, 0); // this tells pin #12 to return to low power
   digitalWrite(11, 1); // this tells pin #11 to output at max power   
-  delay(1000); // this delays the lines above by 1000 miliseconds       
+  delay(1000); // this delays the program by 1000 milliseconds before starting the next lines      
   digitalWrite(13, 0); //this tells pin #13 to stay at low power
   digitalWrite(12, 0); // this tells pin #12 to stay at low power
   digitalWrite(11, 1); // this tells pin #13 to keep outputting at max power
-  delay(1000);  // this delays the lines above by 1000 miliseconds             
+  delay(1000);  // this delays the program by 1000 milliseconds before starting the next lines            
   digitalWrite(13, 0); // this tells pin #13 to stay at low power
   digitalWrite(12, 1); // this tells pin #12 to output at max power
   digitalWrite(11, 0); // this tells pin #11 to return to low power
-  delay(1000);  // this delays the lines above by 1000 miliseconds    
+  delay(1000);  // this delays the program by 1000 milliseconds before starting the next lines    
   digitalWrite(13, 1); // this tells pin #13 to output at max power
   digitalWrite(12, 0); // this tells pin #12 to stay at low power
   digitalWrite(11, 0); // this tells pin #11 to stay at low power
-  delay(1000); // this delays the lines above by 1000 miliseconds
+  delay(1000); // this delays the program by 1000 milliseconds before starting the next lines
 }
