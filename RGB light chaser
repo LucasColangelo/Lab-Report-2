@@ -1,44 +1,51 @@
-//the goal of this program is to have the different colors of an RGB LED (Red, Green, Blue, and White) chase eachother sequentially. Red turns on, then green, and so on and so forth....
+//the goal of this program is to have the different colors of an RGB LED (Red, Green, Blue, and White) chase each other sequentially. Red turns on, then green, and so on and so forth....
 // the main theme of this program is digital Output
-void setup() {
-  // initialize digital pin LED_BUILTIN as an output.
-  pinMode(13, OUTPUT);
-  pinMode(12, OUTPUT);
-  pinMode(11, OUTPUT);
+void setup() { // A one-use block of code. It initializes the sketch and allows the structure of the code or the arduino itself to be written.
+ 
+  pinMode(13, OUTPUT); // this sets pin #13 as an output
+  pinMode(12, OUTPUT); // this sets pin #12 as an output
+  pinMode(11, OUTPUT); // this sets pin #11 as an output
 }
 
-// the loop function runs over and over again forever
-void loop() {
-  digitalWrite(13, 1); 
-  digitalWrite(12, 0);
-  digitalWrite(11, 0);
-  delay(1000);                      
-   digitalWrite(13, 0); 
-  digitalWrite(12, 1);
-  digitalWrite(11, 0);
+void loop() { // This is another one-use line. This determines what the code actually does, and in this case, it will continously loop the code.
+
+  digitalWrite(13, 1); //this sets pin #13 to output at max power
+  digitalWrite(12, 0); // this sets pin #12 to stay at low power
+  digitalWrite(11, 0); // this sets pin #11 to stay at low power
+  delay(1000); // this delays the program by 1000 milliseconds before starting the next lines
+                     
+   digitalWrite(13, 0); //this sets pin #13 to return to low power
+  digitalWrite(12, 1); // this sets pin #12 to output at max power
+  digitalWrite(11, 0); // this sets pin #11 to stay at low power
+  delay(1000); // this delays the program by 1000 milliseconds before starting the next lines
+ 
+   digitalWrite(13, 0); //this sets pin #13 to stay at low power
+  digitalWrite(12, 0); // this sets pin #12 to return to low power
+  digitalWrite(11, 1); // this sets pin #11 to output at max power
+  delay(1000); // this delays the program by 1000 milliseconds before starting the next lines
+    
+ digitalWrite(13, 1); // this sets pin #13 to output at max power
+  digitalWrite(12, 1); // this sets pin #12 to output at max power
+  digitalWrite(11, 1); // this sets pin #11 to stay at max power
   delay(1000);  
-   digitalWrite(13, 0); 
-  digitalWrite(12, 0);
-  digitalWrite(11, 1);
-  delay(1000);     
- digitalWrite(13, 1); 
-  digitalWrite(12, 1);
-  digitalWrite(11, 1);
-  delay(1000);  
-  digitalWrite(13, 1);
-  digitalWrite(12, 1);
-  digitalWrite(11, 1);
-  delay(1000);                    
-   digitalWrite(13, 0); 
-  digitalWrite(12, 0);
-  digitalWrite(11, 1);
-  delay(1000);  
-   digitalWrite(13, 0); 
-  digitalWrite(12, 1);
-  digitalWrite(11, 0);
-  delay(1000);  
-  digitalWrite(13, 1);  
-  digitalWrite(12, 0);
-  digitalWrite(11,0);      
-  delay(1000);         
+  digitalWrite(13, 1); // this sets pin #13 to stay at max power
+  digitalWrite(12, 1); // this sets pin #12 to stay at max power
+  digitalWrite(11, 1); // this sets pin #11 to stay at max power
+  delay(1000); // this delays the program by 1000 milliseconds before starting the next lines
+                   
+   digitalWrite(13, 0); //this sets pin #13 to return to low power
+  digitalWrite(12, 0); // this sets pin #12 to return to low power
+  digitalWrite(11, 1); // this sets pin #11 to stay at max power
+  delay(1000); // this delays the program by 1000 milliseconds before starting the next lines
+ 
+   digitalWrite(13, 0); //this sets pin #13 to stay at low power
+  digitalWrite(12, 1); // this sets pin #12 to output at max power
+  digitalWrite(11, 0); // this sets pin #11 to return to low power
+  delay(1000); // this delays the program by 1000 milliseconds before starting the next lines
+
+  digitalWrite(13, 1); // this sets pin #13 to output at max power
+  digitalWrite(12, 0); // this sets pin #12 to return to low power
+  digitalWrite(11,0); // this sets pin #11 to return to low power    
+  delay(1000); // this delays the program by 1000 milliseconds before starting the next lines
+       
 }
