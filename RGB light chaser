@@ -1,0 +1,44 @@
+//the goal of this program is to have the different colors of an RGB LED (Red, Green, Blue, and White) chase eachother sequentially. Red turns on, then green, and so on and so forth....
+// the main theme of this program is digital Output
+void setup() {
+  // initialize digital pin LED_BUILTIN as an output.
+  pinMode(13, OUTPUT);
+  pinMode(12, OUTPUT);
+  pinMode(11, OUTPUT);
+}
+
+// the loop function runs over and over again forever
+void loop() {
+  digitalWrite(13, 1); 
+  digitalWrite(12, 0);
+  digitalWrite(11, 0);
+  delay(1000);                      
+   digitalWrite(13, 0); 
+  digitalWrite(12, 1);
+  digitalWrite(11, 0);
+  delay(1000);  
+   digitalWrite(13, 0); 
+  digitalWrite(12, 0);
+  digitalWrite(11, 1);
+  delay(1000);     
+ digitalWrite(13, 1); 
+  digitalWrite(12, 1);
+  digitalWrite(11, 1);
+  delay(1000);  
+  digitalWrite(13, 1);
+  digitalWrite(12, 1);
+  digitalWrite(11, 1);
+  delay(1000);                    
+   digitalWrite(13, 0); 
+  digitalWrite(12, 0);
+  digitalWrite(11, 1);
+  delay(1000);  
+   digitalWrite(13, 0); 
+  digitalWrite(12, 1);
+  digitalWrite(11, 0);
+  delay(1000);  
+  digitalWrite(13, 1);  
+  digitalWrite(12, 0);
+  digitalWrite(11,0);      
+  delay(1000);         
+}
