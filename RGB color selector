@@ -1,0 +1,21 @@
+// the goal of this program is to match a color from a color wheel using an analog input and putting in the specifc amount of bits
+// the main theme is analog analog output
+
+int red = 13; // gives pin 13 a variable "red"
+int blue = 12; // gives pin 12 a variable "blue"
+int green = 11; // gives pin 11 a variable "green"
+
+void setup() { // A one-use block of code. It initializes the sketch and allows the structure of the code or the arduino itself to be written.
+ 
+pinMode(red, OUTPUT); // sets pin red (13) to an output
+pinMode(blue, OUTPUT); // sets pin blue (12) to an output
+pinMode(green, OUTPUT); // sets pin green (11) to an output
+}
+void loop() { // This is another one-use line. This determines what the code actually does, and in this case, it will continously loop the code.
+  int red = 13; // gives pin 13 a variable "red"
+ int blue = 12; // gives pin 12 a variable "blue"
+ int green = 11; // gives pin 11 a variable "green"
+  
+analogWrite(red, 24); // tells pin 13 to output at 24 bits
+analogWrite(blue, 232); // tells pin 12 to output at 168 bits
+analogWrite(green, 168); // tells pin 11 to output at 232 bits
