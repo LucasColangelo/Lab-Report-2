@@ -1,0 +1,32 @@
+/* the theme is analog input measuring resistance, the maine goal is to calculate the resistance of an unknown
+  resistor and display it on an lcd*/
+  #include <LiquidCrystal.h> // tells to use liquid crystal library
+  LiquidCrystal lcd(12, 11, 5, 4, 3, 2); // tells which pins on arduino are connected on LCD
+  const float R_known = 10000.0; // 10kΩ known resistor
+  // custom ohm symbol
+  byte customChar[] = { // code for custom ohm symbol
+    0b00000,
+    0b01110,
+    0b10001,
+    0b10001,
+    0b01010,
+    0b11011,
+    0b00000,
+    0b00000
+  };
+  void setup() {
+    lcd.begin(16, 2); // tells it is 16 columns 2 rows
+    lcd.createChar(0, customChar);  // load custom symbol in memory slot 0
+    lcd.print("Ohm Meter"); // prints ohm meter before the loop
+    delay(600); // waits 600 milliseconds with ohm meter on LCD before starting loop
+  } 
+  void loop() { // starts the loop
+    int V = analogRead(A0);  // variable "V" for volt value read at pin A0               
+    float R = R_known * (float)V / (1023.0 - (float)V); // math rule to find value of unknown resistor
+    lcd.clear(); // clears previous content on LCD
+    lcd.setCursor(0, 0); // move cursor to first line, first column
+    lcd.print("R = "); //print "R = "
+    lcd.print(R, 1); // print calculated R from float with 1 decimal place
+    lcd.write(byte(0)); // print the ohm symbol stored in slot 0
+    delay(300); // wait 300 milliseconds before updating again
+}
