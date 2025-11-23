@@ -1,0 +1,14 @@
+
+/* The theme of this program is analog input processing. The main goal is to determine the value of an 
+unknown resistor using the float command and printing it on the serial monitor */
+void setup() { // allows the structure of the code or the arduino itself to be written.
+  Serial.begin(9600); // begins serial communication at 9600 bits per second
+}
+void loop() { // starts a loop
+  int Unknown = analogRead(A0); // // "Unknown" is an integer for the value read from pin A0
+  float Vout = (Unknown / 1023.0) * 5;  // Convert ADC to voltage
+  float R2 = 1000 * (Vout / (Vcc - Vout)); // formula to determine the value of unknown resistor (R2)
+  Serial.print("R = "); // Print whats in the quotations on a new line
+  Serial.print(R2); // print the value obtained from the float formula above
+  Serial.println("ohms"); // print whats in the quotations and end the line
+}
