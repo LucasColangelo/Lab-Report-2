@@ -1,0 +1,16 @@
+
+/* the main theme of this code is analog input processing and printing. The goal of this program is to be 
+able to read the value the potentiometer is giving in bits on the serial monitor*/
+void setup() { // allows the structure of the code or the arduino itself to be written.
+ Serial.begin(9600); // Begin serial communication at 9600 bits per second
+ pinMode(A0, INPUT); // declares pin A0 as an output
+ 
+}
+void loop() { // starts a loop
+ int potpin = A0; // "potpint" is an integer for A0 pin
+ int potvalue = analogRead(potpin); // potvalue is now an integer for the value read from pin A0
+ float voltage = (potvalue / 1023.0) * 5.0; // converts the value in bits to volts using math
+ Serial.print("Voltage = "); // prints on a new line exactly what is in the quotations
+ Serial.print(voltage); // prints on the same line voltage, the value obtained from the float function
+ Serial.println("V"); // end the print line, prints exactly what is in the quotations
+}
