@@ -1,0 +1,40 @@
+/* the main theme is digital sensor data acquisition. the main goal is to connect the ultrasonic sensor 
+to the lcd and have it display the value ( distance in cm)*/
+#define trigPin 10 // defines pin 10 as "trigPin"
+#define echoPin 13// defines pin 13 as "echoPin"
+#include <LiquidCrystal.h> // tells to use liquid crystal library
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2); // tells which pins on arduino are connected on LCD
+float duration, distance; // creates a variable for both duration and distance
+void setup(){
+ Serial.begin(9600); 
+ pinMode(trigPin, OUTPUT); // trigPin is OUTPUT
+ pinMode(echoPin, INPUT);// echoPin is INPUT
+ lcd.begin(16, 2); // tells it is 16 columns 2 rows
+}
+void loop(){ 
+  digitalWrite(trigPin, LOW); // trigPin OUTPUT low
+  delayMicroseconds(2); // delay 2 microseconds
+  digitalWrite(trigPin, HIGH);// trigPin OUTPUT high
+  delayMicroseconds(10);// delay 10 micros
+  digitalWrite(trigPin, LOW); // OUTPUT trigPin LOW
+  
+  duration = pulseIn(echoPin, HIGH); // says that variable duration equals arduinos built in pulseIn (measures duration of a pulse)
+
+  distance = (duration/2) * 0.0343; // calculates the distance using the variables and the formula (divide by 2 because measures once not back and forth and 0.0343= speed of sound)
+  Serial.print("Distance = "); // print " distance = "
+  if (distance>= 400 || distance <= 2) { // if distance read is more than 400cm or less than 2cm print out of range
+    Serial.println ("Out of range"); // print " put of range" if statement is true
+  }
+else { 
+  Serial.print(distance); //if it is not out of range print the distance calculated in serial monitor
+  Serial.println(" cm"); // print " cm " on the same line
+  delay(100);
+ }
+delay(100); 
+lcd.clear(); // clears previous content on LCD
+    lcd.setCursor(0, 0); // move cursor to first line, first column
+    lcd.print("d =  "); // print " d =" 
+    lcd.print(distance, 1); // print distance with 1 decimal place
+    lcd.print("cm" ); // print "cm" 
+    
+}
