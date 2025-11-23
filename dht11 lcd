@@ -1,0 +1,31 @@
+  /*the main theme is digital sensor data acquisition. The main goal is to connect
+The dht11 sensor to the lcd and have it display the values (humidity and temperature)
+#include <LiquidCrystal.h> // use liquid crystal library
+#include <DHT.h> // use installed dht library
+// LCD: RS=12, E=11, D4=7, D5=6, D6=5, D7=4  (pin 2 left free for DHT)
+LiquidCrystal lcd(12, 11, 7, 6, 5, 4); // tells which pins are connected where on LCD
+// DHT11 on Arduino D2
+#define DHTPIN 2 // define which Arduino pin the DHT11 data line is connected to
+#define DHTTYPE DHT11 // define which DHT sensor type is used (DHT11)
+DHT dht(DHTPIN, DHTTYPE); // create a DHT object using the pin and sensor type above
+void setup() {
+  lcd.begin(16, 2); // tells that LCD is 16 column 2 row
+  dht.begin(); // begin communication with DHT
+  lcd.print("DHT11 Sensor"); // print "DHT11 Sensor" exactly  on LCD
+  delay(1000); // wait 1000 milliseconds before starting loop
+}
+void loop() {
+  float h = dht.readHumidity(); // read humidity value in %
+  float t = dht.readTemperature(); // read temperature in C
+  lcd.clear(); // clear previous lines on LCD
+  lcd.setCursor(0, 0); // move cursor to top left corner, row 0, column 0
+  lcd.print("Temp: "); // print " temp: " exactly on LCD
+  lcd.print(t, 1); // print actual value of temperature with 1 decimal place
+  lcd.print((char)223); // print custom degree symbol
+  lcd.print("C"); // print "C" exactly on LCD
+  lcd.setCursor(0, 1); // set cursor at second line, column 0, row 1
+  lcd.print("Hum:  "); // print "humt: " exactly on second line
+  lcd.print(h, 0); // print actual value of humidity with 0 decimal place
+  lcd.print("%"); // print percentage symbol
+  delay(100); // wait 0.1 seconds before updating and printing new value
+}
