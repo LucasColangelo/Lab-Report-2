@@ -1,0 +1,31 @@
+/* the main theme is digital input processing, the main goal of this program is to have an led
+blink without using the delay command and having it disrupt any other part of a code*/
+const int ledPin = 13;  // ledPin is an integer for pin 13
+int ledState = LOW;  // ledState used to set the LED
+unsigned long previousMillis = 0;  // stores the last time led was updated
+const long interval = 1000;  // the interval at which it will blink is 1000 miliseconds
+void setup() {
+  pinMode(ledPin, OUTPUT); // pin 13 is output
+  pinMode(3, INPUT_PULLUP); // pin 3 is input using pull up resistor
+  Serial.begin(9600); // begin serial communication at 9600 bits per second
+}
+void loop() { // start a loop
+  int buttonValue = digitalRead(3); // buttonvalue is an integer for the value read from pin 3
+  Serial.print("Button value: "); // print on a new line whats in the quotations
+  Serial.println(buttonValue); // print the button value and end the line
+  unsigned long currentMillis = millis(); // save the current time
+  if (currentMillis - previousMillis >= interval) {
+    // saves the last time the led blinked
+    previousMillis = currentMillis;
+    if (ledState == LOW) { 
+      ledState = HIGH;
+      // if led is off, turn it on
+    } else {
+      ledState = LOW;
+      // if led is on, turn it off
+    }
+    
+    digitalWrite(ledPin, ledState); // apply the new state to the led
+   
+  }
+}
