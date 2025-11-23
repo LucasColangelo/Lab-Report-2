@@ -1,0 +1,19 @@
+  /* the main theme is analog input measuring voltage. The main goal is to measure the voltage
+  passing through the potentiometer and to display it on the LCD*/
+  
+  #include <LiquidCrystal.h> // tells Arduino to use liquid crystal library to understand LCD code
+  // Same pins as the common HelloWorld example / video
+  LiquidCrystal lcd(12, 11, 5, 4, 3, 2); // tells arduino what which LCD pins are connected to what on arduino (12->RS, 11->E, 5->D4, etc....)
+  void setup() { // sets up the arduino
+    lcd.begin(16, 2); // tells arduino that it is a 16 column, 2 row LCD
+    lcd.print("Voltmeter"); // tells arduino to write "voltemeter" on the first line
+    delay(800); // wait 800 milliseconds to read then goes to main loop
+  }
+  void loop() { // sets arduino up for main loo[]
+    int V = analogRead(A0);   //measures the voltage on analog pin A0, and creates variable "raw" for the value read
+    float volts = V * (5.0 / 1023.0);  // converts the read value into real voltage, analog value read (512) x 5V/1023 bits= 2.5V
+    lcd.clear(); // wipes screen before each update
+    lcd.setCursor(0, 0);  lcd.print("Voltage:"); // moves the text cursor to column 0, row 0 (top left), and prints "Voltage" on the first line
+    lcd.setCursor(0, 1);  lcd.print(volts, 2); lcd.print(" V"); // moves to second line, volts prints the actual value and "2" prints with 2 decimal places, and "V" adds the V next to value
+    delay(300); // waits 300 milliseconds before printing again
+  }
