@@ -1,0 +1,66 @@
+/* the maine theme of this program is analog input provessing and output control. the maine goal
+is to havve the leds turn on one after another depending how far the potentiometer is turned*/
+int potPin = A0; // potentiometer middle pin
+int led1 = 2; // led1 is an integer for pin 2
+int led2 = 3;// led2 is an integer for pin 3
+int led3 = 4;// led3 is an integer for pin 4
+int led4 = 5;// led4 is an integer for pin 5
+int led5 = 6;// led5 is an integer for pin 6
+int potValue = A0; // potValue is an integer for pint A0
+void setup() {
+  pinMode(led1, OUTPUT); /*declares pins led1, led2, led3, led4, led5 as output*/
+  pinMode(led2, OUTPUT);
+  pinMode(led3, OUTPUT);
+  pinMode(led4, OUTPUT);
+  pinMode(led5, OUTPUT);
+  Serial.begin(9600);   // start Serial Monitor at 9600 bits per second
+}
+void loop() { // start a loop
+  potValue = analogRead(potPin);   // potValue is the value read from A0
+  Serial.print("Potentiometer value: "); // print on a new line whats in the quotations
+  Serial.println(potValue);        // print value to Serial Monitor
+  // Turn LEDs on based on thresholds
+  if (potValue < 200) { /* if the bit value is less than 200, all leds are off*/
+    digitalWrite(led1, LOW);
+    digitalWrite(led2, LOW);
+    digitalWrite(led3, LOW);
+    digitalWrite(led4, LOW);
+    digitalWrite(led5, LOW);
+  } 
+  else if (potValue < 400) { /* if the bit value is less than 400, only led 1 turns on*/
+    digitalWrite(led1, HIGH);
+    digitalWrite(led2, LOW);
+    digitalWrite(led3, LOW);
+    digitalWrite(led4, LOW);
+    digitalWrite(led5, LOW);
+  } 
+  else if (potValue < 600) { /* if the bit value is less than 600, leds 1 and 2 turn on*/
+    digitalWrite(led1, HIGH);
+    digitalWrite(led2, HIGH);
+    digitalWrite(led3, LOW);
+    digitalWrite(led4, LOW);
+    digitalWrite(led5, LOW);
+  } 
+  else if (potValue < 800) { /* if the bit value is less than 800, leds 1, 2 and 3 turn on*/
+    digitalWrite(led1, HIGH);
+    digitalWrite(led2, HIGH);
+    digitalWrite(led3, HIGH);
+    digitalWrite(led4, LOW);
+    digitalWrite(led5, LOW);
+  } 
+  else if (potValue < 1000) {/* if the bit value is less than 1000, leds 1, 2, 3 and 4 turn on*/
+    digitalWrite(led1, HIGH);
+    digitalWrite(led2, HIGH);
+    digitalWrite(led3, HIGH);
+    digitalWrite(led4, HIGH);
+    digitalWrite(led5, LOW);
+  } 
+  else { /* if the bit value is less than 1023, all leds turn on*/
+    digitalWrite(led1, HIGH);
+    digitalWrite(led2, HIGH);
+    digitalWrite(led3, HIGH);
+    digitalWrite(led4, HIGH);
+    digitalWrite(led5, HIGH);
+  }
+  delay(100);  // small delay to make Serial Monitor readable
+}
